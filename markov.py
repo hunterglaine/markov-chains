@@ -48,6 +48,21 @@ def make_chains(text_string):
 
     # your code goes here
 
+    # Split input text string and store as variable, words
+    # Loop over the range of length of list
+    # Create a tuple of words[i] and words [i+1] and assign as a key
+    # Create a value variable as assign as words[i+2]
+    # Put the key and value we made into chains - chains[key] = [value]
+    words = text_string.split()
+    for i in range(len(words) - 2):
+        key = (words[i], words[i+1])
+        value = words[i+2]
+        chains[key] = chains.get(key, [])
+        # print(f'chains is {chains}')
+        # print(f'chains[key] is {chains[key]}')
+        chains[key].append(value)
+
+    # print(chains)
     return chains
 
 
