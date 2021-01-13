@@ -1,6 +1,7 @@
 """Generate Markov text from text files."""
 
 from random import choice
+# import random
 
 
 def open_and_read_file(file_path):
@@ -71,8 +72,31 @@ def make_text(chains):
 
     words = []
 
-    # your code goes here
+    # Use the random module to get the first random key (tuple)
+    # Get the first and second word in the tuple we got, key[0] and [1]
+    # Add them to words
+    # Loop to keep getting random word until we run out of words using while True
+    # if key is in dictionary
+    # Look into the values list, get a random word
+    # Add that random word to words
+    # New key = second word and random word in value, this will be a tuple
+    # Get random word associated with new key
+    # Append new word to words
+    # if key key not in dictionary, break
 
+    random_key = choice(list(chains))
+    words.extend([random_key[0], random_key[1]])
+    current_key = random_key
+
+    while True:
+        if current_key in chains:
+            new_word = choice(chains[current_key])
+            words.append(new_word)
+            current_key = (current_key[1], new_word)
+        
+        else:
+            break
+    # print(' '.join(words))
     return ' '.join(words)
 
 
