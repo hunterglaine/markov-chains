@@ -3,6 +3,8 @@
 from random import choice
 # import random
 
+import sys
+
 
 def open_and_read_file(file_path):
     """Take file path as string; return text as string.
@@ -57,6 +59,7 @@ def make_chains(text_string):
     words = text_string.split()
     for i in range(len(words) - 2):
         key = (words[i], words[i+1])
+        tup += ('more', 'data')
         value = words[i+2]
         chains[key] = chains.get(key, [])
         # print(f'chains is {chains}')
@@ -66,8 +69,37 @@ def make_chains(text_string):
     # print(chains)
     return chains
 
+# def make_chains(text_string, n):
+
+#     chains = {}
+
+#     # Split input text string and store as variable, words
+#     # Loop over the range of length of list
+#     # Create a tuple of words[i] and words [i+1] and assign as a key
+#     # Create a value variable as assign as words[i+2]
+#     # Put the key and value we made into chains - chains[key] = [value]
+#     words = text_string.split()
+#     for i in range(len(words) - n):
+#         key = ()
+#         ctr = 0
+#         while n > 0:
+#             key += (words[i+ctr])
+#             ctr += 1
+#             n -= 1
+#         value = words[i+2]
+#         chains[key] = chains.get(key, [])
+#         # print(f'chains is {chains}')
+#         # print(f'chains[key] is {chains[key]}')
+#         chains[key].append(value)
+
+#     # print(chains)
+#     return chains
+
 
 def make_text(chains):
+
+def make_text(chains):
+
     """Return text from chains."""
 
     words = []
@@ -100,7 +132,7 @@ def make_text(chains):
     return ' '.join(words)
 
 
-input_path = 'green-eggs.txt'
+input_path = sys.argv[1]
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
