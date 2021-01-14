@@ -59,7 +59,6 @@ def make_chains(text_string):
     words = text_string.split()
     for i in range(len(words) - 2):
         key = (words[i], words[i+1])
-        tup += ('more', 'data')
         value = words[i+2]
         chains[key] = chains.get(key, [])
         # print(f'chains is {chains}')
@@ -83,10 +82,10 @@ def make_chains(text_string):
 #         key = ()
 #         ctr = 0
 #         while n > 0:
-#             key += (words[i+ctr])
+#             key += (words[i+ctr],)
 #             ctr += 1
 #             n -= 1
-#         value = words[i+2]
+#         value = words[i+n]
 #         chains[key] = chains.get(key, [])
 #         # print(f'chains is {chains}')
 #         # print(f'chains[key] is {chains[key]}')
@@ -95,8 +94,6 @@ def make_chains(text_string):
 #     # print(chains)
 #     return chains
 
-
-def make_text(chains):
 
 def make_text(chains):
 
